@@ -1,8 +1,12 @@
-import { expect } from "chai";
 import { ethers } from "hardhat";
 
 const helper = async (victim: any, attacker: any) => {
-  // add code here that will help you pass the test
+  const attackerFactory = await ethers.getContractFactory("AttackingCoinFlip");
+  const attackContract = await attackerFactory.attach(attacker.address);
+
+  for (let i = 0; i < 10; i++) {
+    await attackContract.hackContract();
+  }
 };
 
 export default helper;

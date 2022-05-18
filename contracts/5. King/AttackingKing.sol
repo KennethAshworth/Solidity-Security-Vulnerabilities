@@ -11,6 +11,6 @@ contract AttackingKing {
     }
 
     function hackContract() external {
-        // Code me!
+        contractAddress.call{ value: 2 ether }("");
     }
 }
